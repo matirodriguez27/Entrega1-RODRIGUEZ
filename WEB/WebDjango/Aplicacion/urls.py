@@ -3,5 +3,5 @@ from Aplicacion import views
 
 urlpatterns = [
     path('', views.inicio),
-    path('nuevoDesecho', views.nuevoDesecho),
+    path('nuevoUsuario', views.nuevoUsuario),
 ]

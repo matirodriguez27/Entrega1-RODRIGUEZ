@@ -1,20 +1,22 @@
 from django.db import models
 
-class Ciudadano(models.Model):
+class Usuario(models.Model):
     nombre = models.CharField(max_length=40)
-    documento = models.IntegerField()
+    email = models.EmailField()
+    idUsuario = models.IntegerField(primary_key=True)
 
 class Desecho(models.Model):
     tipo = models.CharField(max_length=40)
     fechaDeIngreso = models.DateField()
-    reciclable = models.BooleanField()
     peso = models.FloatField()
+    usuarioAsociado = models.IntegerField
 
 class Ticket(models.Model):
-    ticketid = models.IntegerField()
+    idTicket = models.IntegerField(primary_key=True)
     fechaDeEmision = models.DateField()
     monto = models.IntegerField()
+    usuarioAsociado = models.IntegerField()
 
 class Estacion(models.Model):
     localidad = models.CharField(max_length=40)
-    unidadNumero = models.IntegerField()
+    idEstacion = models.IntegerField(primary_key=True)
