@@ -16,9 +16,9 @@ def nuevoUsuario(request):
         if miFormulario.is_valid:
 
             informacion = miFormulario.cleaned_data
-            usuario = Usuario(nombre = informacion['nombre'], email =informacion['email'], idUsuario = informacion['socio'])
+            usuario = Usuario(nombre = informacion['nombre'], email=informacion['email'], idUsuario = informacion['socio'])
             usuario.save()
-            return render(request, "Aplicacion/inicio.html")
+            return render(request, "Aplicacion/nuevoUsuario.html")
     else:
             miFormulario = IngresoUsuario()
 
