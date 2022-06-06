@@ -23,3 +23,15 @@ def nuevoUsuario(request):
             miFormulario = IngresoUsuario()
 
     return render(request, "Aplicacion/nuevoUsuario.html", {"miFormulario":miFormulario})
+def buscarUsuario(request):
+
+    return render(request, "Aplicacion/buscarUsuario.html")
+
+def buscar(request):
+    if request.GET["socio"]:
+        socio = request.GET["socio"]
+        usuarios = Usuario.objects.filter(idUsuario__icontains=socio)
+        return render(request, "Aplicacion/resultadosBusquedaUsuario.html", {"socio":socio,"usuarios":usuarios})
+    else:
+        respuesta = "No enviaste datos"
+        return HttpResponse(respuesta)

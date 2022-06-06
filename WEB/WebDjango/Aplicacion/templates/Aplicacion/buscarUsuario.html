@@ -1,0 +1,12 @@
+{% extends "Aplicacion/index.html" %}
+
+{% load static %}
+
+{% block contenidoVariable%}
+
+<form action = "/Aplicacion/buscar/" method = "GET">
+    <input type = "number" name = "socio" id = "socio">
+    <input type = "submit" value = "Buscar">
+</form>
+
+{% endblock %}

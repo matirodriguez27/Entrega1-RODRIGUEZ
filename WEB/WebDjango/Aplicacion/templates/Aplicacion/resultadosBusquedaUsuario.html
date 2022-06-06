@@ -1,0 +1,15 @@
+{% extends "Aplicacion/index.html" %}
+
+{% load static %}
+
+{% block contenidoVariable%}
+
+<p> Estamos buscando al socio Nro: {{socio}} </p>
+<u1>
+    {% for usuario in usuarios %}
+    <li> {{usuario.nombre}} </li>
+    <li> {{usuario.email}} </li>
+    {% endfor %}
+</u1>
+
+{% endblock %}
