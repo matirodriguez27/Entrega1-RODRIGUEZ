@@ -329,7 +329,7 @@ blockquote p {
   width: 46px;
   height: 46px;
   text-indent: -9999px;
-  background: url(images/robot.png) no-repeat ;
+  background: url(images/superheroes.png) no-repeat ;
   background-size: 46px 46px;
   filter: invert(100%);
 }
