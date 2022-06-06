@@ -4,11 +4,5 @@ from django.shortcuts import render
 # Create your views here.
 def inicio(request):
     return render(request, "Aplicacion/index.html")
-def estaciones(request):
-    return render(request, "Aplicacion/estaciones.html")
-def ciudadanos(request):
-    return render(request, "Aplicacion/ciudadanos.html")
-def desechos(request):
+def nuevoDesecho(request):
     return render(request, "Aplicacion/desechos.html")
-def tickets(request):
-    return render(request, "Aplicacion/tickets.html")
