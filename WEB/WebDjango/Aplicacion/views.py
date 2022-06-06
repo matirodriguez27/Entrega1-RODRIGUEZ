@@ -3,12 +3,12 @@ from django.shortcuts import render
 
 # Create your views here.
 def inicio(request):
-    return HttpResponse('vista inicio')
+    return render(request, "Aplicacion/inicio.html")
 def estaciones(request):
-    return HttpResponse('vista estaciones')
+    return render(request, "Aplicacion/estaciones.html")
 def ciudadanos(request):
-    return HttpResponse('vista ciudadanos')
+    return render(request, "Aplicacion/ciudadanos.html")
 def desechos(request):
-    return HttpResponse('vista desechos')
+    return render(request, "Aplicacion/desechos.html")
 def tickets(request):
-    return HttpResponse('vista tickets')
+    return render(request, "Aplicacion/tickets.html")
