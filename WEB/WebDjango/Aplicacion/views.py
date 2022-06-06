@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def inicio(request):
-    return render(request, "Aplicacion/inicio.html")
+    return render(request, "Aplicacion/index.html")
 def estaciones(request):
     return render(request, "Aplicacion/estaciones.html")
 def ciudadanos(request):
