@@ -3,6 +3,6 @@ from django.shortcuts import render
 
 # Create your views here.
 def inicio(request):
-    return render(request, "Aplicacion/index.html")
+    return render(request, "Aplicacion/inicio.html")
 def nuevoDesecho(request):
     return render(request, "Aplicacion/desechos.html")
