@@ -4,9 +4,17 @@
 
 {% block contenidoVariable%}
 
-<form action = "/Aplicacion/buscar/" method = "GET">
-    <input type = "text" name = "superhumano" id = "superhumano">
-    <input type = "submit" value = "Buscar">
-</form>
-
+<div class="wrap contact" id="contact">
+    <div class="grid grid-pad" >
+        <h2>Buscar aparición</h2>
+        <div>
+            <div class="content contact-form">
+                <form action = "/Aplicacion/buscar/" method = "GET">
+                    <input type = "text" placeholder = "Se busca al superheroe..." name = "superhumano" id = "superhumano">
+                    <input type = "submit" value = "Buscar">    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

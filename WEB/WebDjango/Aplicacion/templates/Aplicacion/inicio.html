@@ -26,18 +26,7 @@
                 </div>
                 <div class="service-entry">
                     <h3>Ingresar nuevo héroe</h3>
-                    <a class="btn read-more" href="#0">Ver más</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-1-4 service-box service-3">
-            <div class="content">
-                <div class="service-icon">
-                    <i class="circle-icon icon-list"></i>
-                </div>
-                <div class="service-entry">
-                    <h3>Listar apariciones</h3>
-                    <a class="btn read-more" href="#0">Ver más</a>
+                    <a class="btn read-more" href="{% url 'nuevoHeroe'%}">Ver más</a>
                 </div>
             </div>
         </div>
@@ -48,7 +37,18 @@
                 </div>
                 <div class="service-entry">
                     <h3>Registrar nueva organización</h3>
-                    <a class="btn read-more" href="#0">Ver más</a>
+                    <a class="btn read-more" href="{% url 'nuevaOrganizacion'%}">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-1-4 service-box service-3">
+            <div class="content">
+                <div class="service-icon">
+                    <i class="circle-icon icon-list"></i>
+                </div>
+                <div class="service-entry">
+                    <h3>Listar apariciones</h3>
+                    <a class="btn read-more" href="{% url 'buscarAparicion'%}">Ver más</a>
                 </div>
             </div>
         </div>

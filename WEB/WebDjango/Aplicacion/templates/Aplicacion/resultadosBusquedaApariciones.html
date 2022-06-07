@@ -4,17 +4,17 @@
 
 {% block contenidoVariable%}
 
-<p> Apariciones del superhumano: {{superhumano}} </p>
-<u1>
-    {% for aparicion in apariciones %}
-    Aparicion: 
-    <li> {{aparicion.descripcionLugar}} </li>
-    {% if aparicion.huboHeridos %}
-        <li> Hubo heridos </li>
-    {% else %}
-        <li> No hubo heridos </li>
-    {% endif %}
-    {% endfor %}
-</u1>
+<div class="wrap contact" id="contact">
+    <div class="grid grid-pad" >
+        <h2>Apariciones del superhumano</h2>
+        <div>
+            <div class="content contact-form">
+                {% for aparicion in apariciones %}
+                <li> {{aparicion.descripcionLugar}} </li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
