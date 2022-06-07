@@ -1,7 +1,7 @@
-from django.http import Http404, HttpRequest, HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import render
-from Aplicacion.forms import IngresoUsuario,NuevaAparicion
-from Aplicacion.models import Usuario, Aparicion
+from Aplicacion.forms import NuevaAparicion
+from Aplicacion.models import  Aparicion
 
 # Create your views here.
 def inicio(request):
