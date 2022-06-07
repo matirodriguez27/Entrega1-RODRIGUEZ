@@ -1,0 +1,15 @@
+{% extends "Aplicacion/index.html" %}
+
+{% load static %}
+
+{% block contenidoVariable%}
+
+<p> Apariciones del superhumano: {{superhumano}} </p>
+<u1>
+    {% for aparicion in apariciones %}
+    <li> {{aparicion.descripcionLugar}} </li>
+    <li> {{aparicion.huboHeridos}} </li>
+    {% endfor %}
+</u1>
+
+{% endblock %}

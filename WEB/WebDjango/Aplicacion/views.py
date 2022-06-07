@@ -1,37 +1,36 @@
 from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import render
-from Aplicacion.forms import IngresoUsuario
-from Aplicacion.models import Usuario
+from Aplicacion.forms import IngresoUsuario,NuevaAparicion
+from Aplicacion.models import Usuario, Aparicion
 
 # Create your views here.
 def inicio(request):
     return render(request, "Aplicacion/inicio.html")
 
-def nuevoUsuario(request):
+def nuevaAparicion(request):
     if request.method == 'POST':
-        miFormulario = IngresoUsuario(request.POST)
+        miFormulario = NuevaAparicion(request.POST)
 
         print(miFormulario)
 
         if miFormulario.is_valid:
-
             informacion = miFormulario.cleaned_data
-            usuario = Usuario(nombre = informacion['nombre'], email=informacion['email'], idUsuario = informacion['socio'])
-            usuario.save()
-            return render(request, "Aplicacion/nuevoUsuario.html")
+            aparicion = Aparicion(descripcionLugar = informacion['descripcionLugar'], superhumano=informacion['superhumano'], huboHeridos = informacion['huboHeridos'])
+            aparicion.save()
+            return render(request, "Aplicacion/nuevaAparicion.html")
     else:
-            miFormulario = IngresoUsuario()
+            miFormulario = NuevaAparicion()
 
-    return render(request, "Aplicacion/nuevoUsuario.html", {"miFormulario":miFormulario})
-def buscarUsuario(request):
+    return render(request, "Aplicacion/nuevaAparicion.html", {"miFormulario":miFormulario})
 
-    return render(request, "Aplicacion/buscarUsuario.html")
+def buscarAparicion(request):
+    return render(request, "Aplicacion/buscarAparicion.html")
 
 def buscar(request):
     if request.GET["socio"]:
-        socio = request.GET["socio"]
-        usuarios = Usuario.objects.filter(idUsuario__icontains=socio)
-        return render(request, "Aplicacion/resultadosBusquedaUsuario.html", {"socio":socio,"usuarios":usuarios})
+        heroe = request.GET["superhumano"]
+        apariciones = Aparicion.objects.filter(superhumano__icontains=heroe)
+        return render(request, "Aplicacion/resultadosBusquedaAparicion.html", {"superhumano":heroe,"apariciones":apariciones})
     else:
         respuesta = "No enviaste datos"
         return HttpResponse(respuesta)
