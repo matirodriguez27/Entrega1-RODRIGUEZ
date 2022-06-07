@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from Aplicacion.forms import NuevaAparicion
-from Aplicacion.models import  Aparicion
+from Aplicacion.forms import NuevaAparicion, NuevoHeroe, NuevaOrganizacion
+from Aplicacion.models import  Aparicion, Superhumano, Organizacion
 
 # Create your views here.
 def inicio(request):
@@ -20,17 +20,46 @@ def nuevaAparicion(request):
             return render(request, "Aplicacion/nuevaAparicion.html")
     else:
             miFormulario = NuevaAparicion()
+    return render(request, "Aplicacion/nuevaAparicion.html", {"miFormulario":miFormulario})
 
+def nuevoHeroe(request):
+    if request.method == 'POST':
+        miFormulario = NuevoHeroe(request.POST)
+
+        print(miFormulario)
+
+        if miFormulario.is_valid:
+            informacion = miFormulario.cleaned_data
+            heroe = Superhumano(nombre = informacion['nombre'], nivelDePoder=informacion['nivelDePoder'], idSuperhumano = informacion['idSuperhumano'], esMalvado = informacion['esMalvado'])
+            heroe.save()
+            return render(request, "Aplicacion/nuevaAparicion.html")
+    else:
+            miFormulario = NuevoHeroe()
+    return render(request, "Aplicacion/nuevoHeroe.html", {"miFormulario":miFormulario})
+
+def nuevaOrganizacion(request):
+    if request.method == 'POST':
+        miFormulario = NuevaOrganizacion(request.POST)
+
+        print(miFormulario)
+
+        if miFormulario.is_valid:
+            informacion = miFormulario.cleaned_data
+            organizacion = Organizacion(nombre = informacion['nombre'], cantIntegrantes=informacion['cantIntegrantes'])
+            organizacion.save()
+            return render(request, "Aplicacion/nuevaOrganizacion.html")
+    else:
+            miFormulario = NuevaOrganizacion()
     return render(request, "Aplicacion/nuevaAparicion.html", {"miFormulario":miFormulario})
 
 def buscarAparicion(request):
     return render(request, "Aplicacion/buscarAparicion.html")
 
 def buscar(request):
-    if request.GET["socio"]:
+    if request.GET["superhumano"]:
         heroe = request.GET["superhumano"]
         apariciones = Aparicion.objects.filter(superhumano__icontains=heroe)
-        return render(request, "Aplicacion/resultadosBusquedaAparicion.html", {"superhumano":heroe,"apariciones":apariciones})
+        return render(request, "Aplicacion/resultadosBusquedaApariciones.html", {"superhumano":heroe,"apariciones":apariciones})
     else:
         respuesta = "No enviaste datos"
         return HttpResponse(respuesta)

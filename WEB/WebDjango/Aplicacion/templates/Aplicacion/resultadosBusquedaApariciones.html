@@ -7,8 +7,13 @@
 <p> Apariciones del superhumano: {{superhumano}} </p>
 <u1>
     {% for aparicion in apariciones %}
+    Aparicion: 
     <li> {{aparicion.descripcionLugar}} </li>
-    <li> {{aparicion.huboHeridos}} </li>
+    {% if aparicion.huboHeridos %}
+        <li> Hubo heridos </li>
+    {% else %}
+        <li> No hubo heridos </li>
+    {% endif %}
     {% endfor %}
 </u1>
 
