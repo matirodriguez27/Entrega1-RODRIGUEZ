@@ -25,9 +25,7 @@ def nuevaAparicion(request):
 def nuevoHeroe(request):
     if request.method == 'POST':
         miFormulario = NuevoHeroe(request.POST)
-
         print(miFormulario)
-
         if miFormulario.is_valid:
             informacion = miFormulario.cleaned_data
             heroe = Superhumano(nombre = informacion['nombre'], nivelDePoder=informacion['poder'])
@@ -40,9 +38,7 @@ def nuevoHeroe(request):
 def nuevaOrganizacion(request):
     if request.method == 'POST':
         miFormulario = NuevaOrganizacion(request.POST)
-
         print(miFormulario)
-
         if miFormulario.is_valid:
             informacion = miFormulario.cleaned_data
             organizacion = Organizacion(nombre = informacion['nombre'], cantIntegrantes=informacion['cantIntegrantes'])
@@ -50,7 +46,7 @@ def nuevaOrganizacion(request):
             return render(request, "Aplicacion/inicio.html")
     else:
             miFormulario = NuevaOrganizacion()
-    return render(request, "Aplicacion/nuevaAparicion.html", {"miFormulario":miFormulario})
+    return render(request, "Aplicacion/nuevaOrganizacion.html", {"miFormulario":miFormulario})
 
 def buscarAparicion(request):
     return render(request, "Aplicacion/buscarAparicion.html")
