@@ -1694,10 +1694,7 @@ footer p, footer a {
     color: #fff;
   }
 
-  .navigation input[type=checkbox]:checked ~ ul {
-    display: block;
-  }
-
+  
   .navigation input[type=checkbox]:checked ~ ul > li {
     width: 100%;
     text-align: left;
@@ -1710,7 +1707,6 @@ footer p, footer a {
     left: 0;
     visibility: visible;
     opacity: 1;
-    display: block;
     border: none;
     box-shadow: none;
     width: 100%;

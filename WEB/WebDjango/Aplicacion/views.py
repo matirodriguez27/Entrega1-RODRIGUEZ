@@ -15,7 +15,7 @@ def nuevaAparicion(request):
 
         if miFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            aparicion = Aparicion(descripcionLugar = informacion['descripcionLugar'], superhumano=informacion['superhumano'], huboHeridos = informacion['huboHeridos'])
+            aparicion = Aparicion(descripcionLugar = informacion['descripcionLugar'], superhumano=informacion['superhumano'])
             aparicion.save()
             return render(request, "Aplicacion/nuevaAparicion.html")
     else:
@@ -30,7 +30,7 @@ def nuevoHeroe(request):
 
         if miFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            heroe = Superhumano(nombre = informacion['nombre'], nivelDePoder=informacion['nivelDePoder'], idSuperhumano = informacion['idSuperhumano'], esMalvado = informacion['esMalvado'])
+            heroe = Superhumano(nombre = informacion['nombre'], poder=informacion['poder'])
             heroe.save()
             return render(request, "Aplicacion/nuevaAparicion.html")
     else:
